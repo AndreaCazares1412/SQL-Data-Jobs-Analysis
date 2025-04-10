@@ -2,7 +2,7 @@
 📊 Exploring the data analyst job market through SQL!
 In this project, I answer 5 key questions to uncover 💰 the highest-paying roles, 🔧 the skills they require, 🔥 the most in-demand tools, and 🎯 which skills offer the best return on investment for aspiring analysts.
 
-🔍 SQL queries? Check them out here: project_sql folder
+🔍 SQL queries? Check them out here: [SQL folder](project_sql)
 
 # Background
 Driven by curiosity, portfolio building, and a desire to navigate the data analyst job market more effectively, this project was built to practice real-world SQL skills while uncovering valuable career insights. As part of the [SQL for Data Analytics by Luke Barousse](https://www.youtube.com/watch?v=7mz73uXD9DA), and wanted to apply what I learned in a meaningful way.
