@@ -25,7 +25,6 @@ For my deep dive into the data analyst job market, I harnessed the power of seve
 * **PostgreSQL**: The chosen database management system, ideal for handling the job posting data.  
 * **Visual Studio Code**: My go-to for database management and executing SQL queries.  
 * **Git & GitHub**: Essential for version control and sharing my SQL scripts and analysis, ensuring collaboration and project tracking.  
-* **Tableau**: Used for visualizing key trends and insights from the job market data.
 
 # The Anlaysis
 
