@@ -11,9 +11,9 @@ Using job posting data, I set out to answer five key questions:
 
 1. What are the top-paying data analyst jobs?
 2. What skills are required for these top-paying jobs?
-3.What skills are most in demand for data analysts?
+3. What skills are most in demand for data analysts?
 4. Which skills are associated with higher salaries?
-5. What are the most optimal skills to learn?
+5. What are the most optimal skills to learn?  
 
 The result? A practical SQL project aimed at helping aspiring analysts (myself included) make smarter skill-building decisions.
 
