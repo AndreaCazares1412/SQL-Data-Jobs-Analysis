@@ -119,7 +119,13 @@ Here's the breakdown of the most demanded skills for data analysts in 2023
 * SQL and Excel remain fundamental, emphasizing the need for strong foundational skills in data processing and spreadsheet manipulation.
 * Programming and Visualization Tools like Python, Tableau, and Power BI are essential, pointing towards the increasing importance of technical skills in data storytelling and decision support.
 
-TABLA
+| Rank | Skill     | Demand Count |
+|------|-----------|--------------|
+| 1    | SQL       | 92,628       |
+| 2    | Excel     | 67,031       |
+| 3    | Python    | 57,326       |
+| 4    | Tableau   | 46,554       |
+| 5    | Power BI  | 39,468       |
 
 ### 4. Skills Based on Salary
 Exploring the average salaries associated with different skills revealed which skills are the highest paying.
@@ -143,7 +149,18 @@ Here's a breakdown of the results for top paying skills for Data Analysts:
 * Software Development & Deployment Proficiency: Knowledge in development and deployment tools (GitLab, Kubernetes, Airflow) indicates a lucrative crossover between data analysis and engineering, with a premium on skills that facilitate automation and efficient data pipeline management.
 * Cloud Computing Expertise: Familiarity with cloud and data engineering tools (Elasticsearch, Databricks, GCP) underscores the growing importance of cloud-based analytics environments, suggesting that cloud proficiency significantly boosts earning potential in data analytics.
 
-TABLA
+| Rank | Skill        | Average Salary ($) |
+|------|--------------|--------------------|
+| 1    | PySpark      | 208,172            |
+| 2    | Bitbucket    | 189,155            |
+| 3    | Couchbase    | 160,515            |
+| 4    | Watson       | 160,515            |
+| 5    | DataRobot    | 155,486            |
+| 6    | GitLab       | 154,500            |
+| 7    | Swift        | 153,750            |
+| 8    | Jupyter      | 152,777            |
+| 9    | Pandas       | 151,821            |
+| 10   | Elasticsearch| 145,000            |
 
 ### 5. Most Optimal Skills to Learn
 Combining insights from demand and salary data, this query aimed to pinpoint skills that are both in high demand and have high salaries, offering a strategic focus for skill development.
@@ -169,7 +186,18 @@ ORDER BY
 LIMIT 25;
 ```
 
-TABLA
+| Rank | Skill       | Demand Count | Average Salary ($) |
+|------|-------------|---------------|---------------------|
+| 1    | Go          | 27            | 115,320             |
+| 2    | Confluence  | 11            | 114,210             |
+| 3    | Hadoop      | 22            | 113,193             |
+| 4    | Snowflake   | 37            | 112,948             |
+| 5    | Azure       | 34            | 111,225             |
+| 6    | BigQuery    | 13            | 109,654             |
+| 7    | AWS         | 32            | 108,317             |
+| 8    | Java        | 17            | 106,906             |
+| 9    | SSIS        | 12            | 106,683             |
+| 10   | Jira        | 20            | 104,918             |
 
 Here's a breakdown of the most optimal skills for Data Analysts in 2023:
 
