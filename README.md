@@ -13,7 +13,7 @@ Using job posting data, I set out to answer five key questions:
 2. What skills are required for these top-paying jobs?
 3. What skills are most in demand for data analysts?
 4. Which skills are associated with higher salaries?
-5. What are the most optimal skills to learn?  
+5. Which skills are most optimal to learn (value = salary × demand)?
 
 The result? A practical SQL project aimed at helping aspiring analysts (myself included) make smarter skill-building decisions.
 
@@ -162,48 +162,70 @@ Here's a breakdown of the results for top paying skills for Data Analysts:
 | 10   | Elasticsearch| 145,000            |
 
 ### 5. Most Optimal Skills to Learn
-Combining insights from demand and salary data, this query aimed to pinpoint skills that are both in high demand and have high salaries, offering a strategic focus for skill development.
+This query aims to identify the most optimal skills to learn as a data analyst by combining two key factors:
+
+* 🔥 Skill Demand: how frequently a skill appears in job postings
+
+* 💰 Average Salary: how well-paying the jobs are where the skill appears
+
+To avoid favoring just highly common or just highly paid skills, I calculate a balanced score using the formula:
 
 ```sql
+score = salary_avg * LOG(skill_demand)
+```
+* Why LOG()?: Using LOG(skill_demand) reduces the over-influence of very frequent skills (like SQL), while still giving credit to skills with real market demand.
+
+### What the query does:
+* Joins job postings with associated skills
+* Filters for data analyst jobs with non-null salaries
+* Aggregates the average salary and skill frequency
+* Calculates a score to rank skills based on both value and demand
+* Returns the top 10 skills with the highest score
+
+
+
+```sql
+WITH highest_payed_skill AS (
 SELECT 
     skills_dim.skill_id,
-    skills_dim.skills, 
-    COUNT(*) AS demand_count, 
-    ROUND(AVG(salary_year_avg), 0) AS salary_avg
-FROM job_postings_fact
-INNER JOIN skills_job_dim ON job_postings_fact.job_id = skills_job_dim.job_id
-INNER JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+    skills_dim.skills,
+    COUNT(skills_dim.skills) AS skill_demand,
+    ROUND(AVG(job_postings_fact.salary_year_avg), 0) AS salary_avg
+FROM skills_job_dim
+LEFT JOIN skills_dim ON skills_job_dim.skill_id = skills_dim.skill_id
+LEFT JOIN job_postings_fact ON skills_job_dim.job_id = job_postings_fact.job_id
 WHERE 
-    job_title_short = 'Data Analyst' 
-    AND salary_year_avg IS NOT NULL
-    AND job_work_from_home = True
-GROUP BY skills_dim.skill_id
-HAVING COUNT(*) > 10
-ORDER BY 
-    salary_avg DESC,
-    demand_count DESC
-LIMIT 25;
+    job_postings_fact.salary_year_avg IS NOT NULL 
+    AND job_title_short = 'Data Analyst'
+GROUP BY skills_dim.skills,  skills_dim.skill_id)
+
+
+SELECT highest_payed_skill.*,
+    ROUND(highest_payed_skill.salary_avg * LOG(highest_payed_skill.skill_demand)) AS score
+FROM highest_payed_skill 
+ORDER BY score DESC
+LIMIT 10;
 ```
 
-| Rank | Skill       | Demand Count | Average Salary ($) |
-|------|-------------|---------------|---------------------|
-| 1    | Go          | 27            | 115,320             |
-| 2    | Confluence  | 11            | 114,210             |
-| 3    | Hadoop      | 22            | 113,193             |
-| 4    | Snowflake   | 37            | 112,948             |
-| 5    | Azure       | 34            | 111,225             |
-| 6    | BigQuery    | 13            | 109,654             |
-| 7    | AWS         | 32            | 108,317             |
-| 8    | Java        | 17            | 106,906             |
-| 9    | SSIS        | 12            | 106,683             |
-| 10   | Jira        | 20            | 104,918             |
+| Rank | Skill     | Demand | Avg Salary ($) | Score   |
+|------|-----------|--------|----------------|---------|
+| 1    | SQL       | 3,083  | 96,435         | 336,459 |
+| 2    | Python    | 1,840  | 101,512        | 331,418 |
+| 3    | Tableau   | 1,659  | 97,978         | 315,474 |
+| 4    | R         | 1,073  | 98,708         | 299,144 |
+| 5    | Excel     | 2,143  | 86,419         | 287,864 |
+| 6    | Power BI  | 1,044  | 92,324         | 278,699 |
+| 7    | Snowflake |   241  | 111,578        | 265,781 |
+| 8    | Azure     |   319  | 105,400        | 263,900 |
+| 9    | AWS       |   291  | 106,440        | 262,257 |
+| 10   | Spark     |   187  | 113,002        | 256,723 |
 
-Here's a breakdown of the most optimal skills for Data Analysts in 2023:
-
-* High-Demand Programming Languages: Python and R stand out for their high demand, with demand counts of 236 and 148 respectively. * Despite their high demand, their average salaries are around $101,397 for Python and $100,499 for R, indicating that proficiency in these languages is highly valued but also widely available.
-* Cloud Tools and Technologies: Skills in specialized technologies such as Snowflake, Azure, AWS, and BigQuery show significant demand with relatively high average salaries, pointing towards the growing importance of cloud platforms and big data technologies in data analysis.
-* Business Intelligence and Visualization Tools: Tableau and Looker, with demand counts of 230 and 49 respectively, and average salaries around $99,288 and $103,795, highlight the critical role of data visualization and business intelligence in deriving actionable insights from data.
-* Database Technologies: The demand for skills in traditional and NoSQL databases (Oracle, SQL Server, NoSQL) with average salaries ranging from $97,786 to $104,534, reflects the enduring need for data storage, retrieval, and management expertise.
+Key Takeaways:
+* SQL leads the list due to extremely high demand and strong salary—it's foundational for any data analyst.
+* Python and R are must-haves for analytics and modeling—great balance of salary and usage.
+* BI Tools like Tableau and Power BI are also top-tier, highlighting the importance of communication through dashboards.
+* Cloud tools (Snowflake, Azure, AWS) are climbing up the ranks—valuable for analysts with data engineering or big data skills.
+* Spark is less common but highly paid, suggesting it’s a valuable niche for those aiming for high-compensation roles.
 
 # What I Learned
 
