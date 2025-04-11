@@ -1,10 +1,4 @@
-/*
-Answer: What are the most optimal skills to learn (aka it’s in high demand and a high-paying skill)?
-- Identify skills in high demand and associated with high average salaries for Data Analyst roles
-- Concentrates on remote positions with specified salaries
-- Why? Targets skills that offer job security (high demand) and financial benefits (high salaries), 
-    offering strategic insights for career development in data analysis
-*/
+--Question: Which skills are most optimal to learn (value = salary × demand)?
 
 WITH highest_payed_skill AS (
 SELECT 
@@ -26,3 +20,79 @@ SELECT highest_payed_skill.*,
 FROM highest_payed_skill 
 ORDER BY score DESC
 LIMIT 10;
+
+/*
+[
+  {
+    "skill_id": 0,
+    "skills": "sql",
+    "skill_demand": "3083",
+    "salary_avg": "96435",
+    "score": 336459
+  },
+  {
+    "skill_id": 1,
+    "skills": "python",
+    "skill_demand": "1840",
+    "salary_avg": "101512",
+    "score": 331418
+  },
+  {
+    "skill_id": 182,
+    "skills": "tableau",
+    "skill_demand": "1659",
+    "salary_avg": "97978",
+    "score": 315474
+  },
+  {
+    "skill_id": 5,
+    "skills": "r",
+    "skill_demand": "1073",
+    "salary_avg": "98708",
+    "score": 299144
+  },
+  {
+    "skill_id": 181,
+    "skills": "excel",
+    "skill_demand": "2143",
+    "salary_avg": "86419",
+    "score": 287864
+  },
+  {
+    "skill_id": 183,
+    "skills": "power bi",
+    "skill_demand": "1044",
+    "salary_avg": "92324",
+    "score": 278699
+  },
+  {
+    "skill_id": 80,
+    "skills": "snowflake",
+    "skill_demand": "241",
+    "salary_avg": "111578",
+    "score": 265781
+  },
+  {
+    "skill_id": 74,
+    "skills": "azure",
+    "skill_demand": "319",
+    "salary_avg": "105400",
+    "score": 263900
+  },
+  {
+    "skill_id": 76,
+    "skills": "aws",
+    "skill_demand": "291",
+    "salary_avg": "106440",
+    "score": 262257
+  },
+  {
+    "skill_id": 92,
+    "skills": "spark",
+    "skill_demand": "187",
+    "salary_avg": "113002",
+    "score": 256723
+  }
+]
+
+*/
