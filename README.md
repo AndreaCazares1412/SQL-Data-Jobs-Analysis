@@ -5,7 +5,7 @@ In this project, I answer 5 key questions to uncover the highest-paying roles, t
 🔍 SQL queries? Check them out here: [project_sql folder](project_sql)
 
 # Background
-Driven by curiosity, portfolio building, and a desire to navigate the data analyst job market more effectively, this project was built to practice real-world SQL skills while uncovering valuable career insights. As part of the [SQL for Data Analytics by Luke Barousse](https://www.youtube.com/watch?v=7mz73uXD9DA), and wanted to apply what I learned in a meaningful way.
+Fueled by a desire to explore the data analyst job market and extract actionable insights, I chose SQL as the core tool for this analysis because of its power to handle large datasets efficiently, uncover trends through flexible querying, and support clean, scalable data exploration. This project allowed me to apply SQL not just as a technical skill, but as a method for answering meaningful questions—turning raw job data into strategic career insights.
 
 Using job posting data, I set out to answer five key questions:
 
@@ -255,3 +255,5 @@ Digging into the data revealed several key takeaways about the data analyst job 
 ## Closing Thoughts
 This project was a great opportunity to sharpen my SQL skills while diving into the realities of the data analyst job market.
 The analysis helped highlight which skills truly make a difference in salary and demand, offering a clearer path for anyone looking to grow in this field. For aspiring data analysts like myself, this project reinforced how important it is to stay adaptable, keep learning, and focus on the tools that open the most doors.
+ 
+Special thanks to Luke Barousse for designing the  [SQL for Data Analytics by Luke Barousse](https://www.youtube.com/watch?v=7mz73uXD9DA) course!
