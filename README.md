@@ -255,5 +255,6 @@ Digging into the data revealed several key takeaways about the data analyst job 
 ## Closing Thoughts
 This project was a great opportunity to sharpen my SQL skills while diving into the realities of the data analyst job market.
 The analysis helped highlight which skills truly make a difference in salary and demand, offering a clearer path for anyone looking to grow in this field. For aspiring data analysts like myself, this project reinforced how important it is to stay adaptable, keep learning, and focus on the tools that open the most doors.
- 
+
+### Acknowledgments
 Special thanks to Luke Barousse for designing the  [SQL for Data Analytics by Luke Barousse](https://www.youtube.com/watch?v=7mz73uXD9DA) course!
