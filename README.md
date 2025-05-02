@@ -1,6 +1,6 @@
 # Introduction
 📊 Exploring the data analyst job market through SQL!
-In this project, I answer 5 key questions to uncover 💰 the highest-paying roles, 🔧 the skills they require, 🔥 the most in-demand tools, and 🎯 which skills offer the best return on investment for aspiring analysts.
+In this project, I answer 5 key questions to uncover the highest-paying roles, the skills they require, the most in-demand tools, and which skills offer the best return on investment for aspiring analysts.
 
 🔍 SQL queries? Check them out here: [project_sql folder](project_sql)
 
